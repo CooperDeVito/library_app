@@ -13,6 +13,15 @@ app.get('/', (req, res) => {
 	res.send('Whats up');
 });
 
+app.get('/books/get', async (req, res) => {
+	const brief = await db.collection('books').get();
+	console.log(brief);
+	brief.forEach((item) => {
+		console.log(item.id, ': ', item.data());
+	});
+	res.send('placeholder');
+});
+
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
