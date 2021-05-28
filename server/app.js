@@ -31,24 +31,24 @@ app.get('/books/get/title/:title', (req, res) => {
 		});
 });
 
-app.get('/books/get/title/:title/author/:author', (req, res) => {
-	const bookTitle = req.params.title;
-	const author = req.params.author;
-	console.log(bookTitle);
-	const url = new URL('https://www.googleapis.com/books/v1/volumes');
-	//url.searchParams.append('intitle', bookTitle);
-	url.searchParams.append('q', bookTitle);
-	url.searchParams.append('inauthor', author);
-	console.log(url);
+// app.get('/books/get/title/:title/author/:author', (req, res) => {
+// 	const bookTitle = req.params.title;
+// 	const author = req.params.author;
+// 	console.log(bookTitle);
+// 	const url = new URL('https://www.googleapis.com/books/v1/volumes');
+// 	//url.searchParams.append('intitle', bookTitle);
+// 	url.searchParams.append('q', bookTitle);
+// 	url.searchParams.append('inauthor', author);
+// 	console.log(url);
 
-	fetch(url)
-		.then((res) => {
-			return res.json();
-		})
-		.then((obj) => {
-			res.json(obj.items);
-		});
-});
+// 	fetch(url)
+// 		.then((res) => {
+// 			return res.json();
+// 		})
+// 		.then((obj) => {
+// 			res.json(obj.items);
+// 		});
+// });
 
 //add functionarlity
 app.post('/books/add', async (req, res) => {
