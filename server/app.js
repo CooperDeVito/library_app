@@ -53,17 +53,30 @@ app.get('/books/get/title/:title/author/:author', (req, res) => {
 //add functionarlity
 app.post('/books/add', async (req, res) => {
 	//what do we want from the response?
-	const { title, author } = res.body;
+	const { Title, Author } = req.body;
 
 	const response = await db.collection('books').add({
-		title,
-		author,
+		Title,
+		Author,
 	});
+
+	//now use fetch to upload json
 	res.sendStatus(200);
 
 	console.log('Added document with id: ', response.id);
 });
 
+// app.post('books/add/title/:title/author/:author', async (req, res) => {
+// 	const Title = req.params.title;
+// 	const Author = req.params.author;
+
+// 	const response = await db.collection('books').add({
+// 		Title,
+// 		Author,
+// 	});
+
+// 	fetch('')
+// });
 app.get('/books/get', async (req, res) => {
 	const brief = await db.collection('books').get();
 	const allBooks = [];
