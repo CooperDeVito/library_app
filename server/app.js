@@ -5,6 +5,7 @@ const fetch = require('isomorphic-fetch');
 const port = 8080;
 const app = express();
 const db = require('./firebase');
+const { collection } = require('./firebase');
 
 app.use(express.json());
 app.use(cors({ origin: true })); //pretty much allow any cross sharing
@@ -47,6 +48,20 @@ app.get('/books/get/title/:title/author/:author', (req, res) => {
 		.then((obj) => {
 			res.json(obj.items);
 		});
+});
+
+//add functionarlity
+app.post('/books/add', async (req, res) => {
+	//what do we want from the response?
+	const { title, author } = res.body;
+
+	const response = await db.collection('books').add({
+		title,
+		author,
+	});
+	res.sendStatus(200);
+
+	console.log('Added document with id: ', response.id);
 });
 
 app.get('/books/get', async (req, res) => {
