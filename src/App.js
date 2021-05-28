@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
+import Quote from './components/Quote';
 
 function App() {
 	const newTitle = 'The Boys in The Boat';
 	const newAuthor = 'Daniel James Brown';
-
+	const [allBooks, setAllBooks] = useState();
 	const newBook = {
 		Title: newTitle,
 		Author: newAuthor,
 	};
 
-	const [allBooks, setAllBooks] = useState();
 	useEffect(() => {
 		fetch('http://localhost:8080/books/get')
 			.then((response) => {
@@ -38,14 +38,9 @@ function App() {
 			});
 	}, []);
 
-	if (!allBooks) {
-		return <div> Loading... </div>;
-	}
 	return (
 		<div className="App">
-			{allBooks.map((book) => (
-				<pre>{JSON.stringify(book)}</pre>
-			))}
+			<Quote />
 		</div>
 	);
 }
