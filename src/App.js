@@ -6,7 +6,17 @@ import SearchForm from './SearchPage/components/SearchForm';
 import BookDisplay from './SearchPage/components/BookDisplay';
 import SearchPage from './SearchPage/App';
 import LibraryPage from './LibraryPage/App';
+import Home from './components/Home';
 import NavBar from './components/NavBar';
+import {
+	BrowserRouter,
+	Route,
+	Link,
+	Switch,
+	useHistory,
+	Redirect,
+} from 'react-router-dom';
+
 import {
 	makeStyles,
 	ThemeProvider,
@@ -62,6 +72,7 @@ function App() {
 		<MuiThemeProvider theme={theme}>
 			<div className="App">
 				<NavBar></NavBar>
+
 				<SearchPage />
 				<LibraryPage></LibraryPage>
 			</div>
