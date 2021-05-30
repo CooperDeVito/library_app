@@ -10,21 +10,26 @@ import { Button, TextField, Paper } from '@material-ui/core';
 
 function SearchForm(props) {
 	function handleChange(e) {
+		console.log('handling change');
 		props.setTitleSearched(e.target.value);
+		console.log(props.titleSearched);
 	}
 
 	//activate get request for books having title. then set books found to this obj
 	function handleSubmit(e) {
-		fetch(`http://localhost8080/books/get/title/${props.titleSearched}`)
+		fetch(`http://localhost:8080/books/get/title/${props.titleSearched}`)
 			.then((response) => {
 				return response.json();
 			})
 			.then((object) => {
 				props.setBooksFound(object);
+				console.log('set books found');
+				//console.log(props.booksFound);
 			});
 		e.preventDefault();
-		console.log('Searched');
-		console.log(JSON.stringify(props.booksFound));
+		// console.log('Searched');
+		// console.log(props.titleSearched);
+		// console.log(props.booksFound);
 	}
 	return (
 		<Paper>

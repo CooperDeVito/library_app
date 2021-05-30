@@ -42,6 +42,7 @@ function App() {
 			<SearchForm
 				titleSearched={titleSearched}
 				setTitleSearched={setTitleSearched}
+				setBooksFound={setBooksFound}
 				booksFound={booksFound}
 			/>
 			<pre>{JSON.stringify(booksFound)}</pre>
