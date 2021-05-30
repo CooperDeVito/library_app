@@ -27,13 +27,22 @@ function SearchForm(props) {
 				//console.log(props.booksFound);
 			});
 		e.preventDefault();
+
 		// console.log('Searched');
 		// console.log(props.titleSearched);
 		// console.log(props.booksFound);
 	}
+
+	function textDisplay() {
+		if (!props.booksFound) {
+			return <h1> Search for a book! </h1>;
+		}
+		return <h1> Showing results for {props.titleSearched} </h1>;
+	}
 	return (
 		<Paper>
 			<form onSubmit={handleSubmit}>
+				{textDisplay()}
 				<TextField
 					id="filled-basic"
 					variant="filled"

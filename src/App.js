@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Quote from './components/Quote';
 import SearchForm from './components/SearchForm';
+import BookDisplay from './components/BookDisplay';
 
 function App() {
 	const [booksFound, setBooksFound] = useState(); //the book we just searched for
@@ -45,7 +46,7 @@ function App() {
 				setBooksFound={setBooksFound}
 				booksFound={booksFound}
 			/>
-			<pre>{JSON.stringify(booksFound)}</pre>
+			<BookDisplay booksFound={booksFound}></BookDisplay>
 		</div>
 	);
 }
