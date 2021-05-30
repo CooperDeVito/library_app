@@ -52,7 +52,12 @@ function SearchForm(props) {
 					onChange={handleChange}
 				/>
 
-				<Button type="submit" color="primary" variant="contained" size="large">
+				<Button
+					type="submit"
+					color="secondary"
+					variant="contained"
+					size="large"
+				>
 					Search
 				</Button>
 			</form>
