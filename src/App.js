@@ -22,6 +22,7 @@ import {
 	ThemeProvider,
 	createMuiTheme,
 	MuiThemeProvider,
+	Button,
 } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -72,9 +73,28 @@ function App() {
 		<MuiThemeProvider theme={theme}>
 			<div className="App">
 				<NavBar></NavBar>
+				<BrowserRouter>
+					<h3>
+						<Link to="/">Home</Link>
+					</h3>
+					<h3>
+						<Link to="/Search">Search Page </Link>
+					</h3>
+					<h3>
+						<Link to="/Library">View Library</Link>
+					</h3>
 
-				<SearchPage />
-				<LibraryPage></LibraryPage>
+					<main>
+						<Switch>
+							<Route path="/" exact component={Home} />
+
+							<Route path="/Search" component={SearchPage} />
+							<Route path="/Library" component={LibraryPage} />
+						</Switch>
+					</main>
+				</BrowserRouter>
+				{/* <SearchPage />
+				<LibraryPage></LibraryPage> */}
 			</div>
 		</MuiThemeProvider>
 	);
