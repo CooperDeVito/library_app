@@ -1,12 +1,11 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import Quote from './SearchPage/components/Quote';
-import SearchForm from './SearchPage/components/SearchForm';
-import BookDisplay from './SearchPage/components/BookDisplay';
-import SearchPage from './SearchPage/App';
+import Quote from './components/Quote';
+import SearchForm from './components/SearchForm';
+import BookDisplay from './components/BookDisplay';
 
-function App() {
+function SearchPage() {
 	const [booksFound, setBooksFound] = useState(); //the book we just searched for
 	const [titleSearched, setTitleSearched] = useState('');
 	const [allBooks, setAllBooks] = useState();
@@ -40,9 +39,16 @@ function App() {
 	}
 	return (
 		<div className="App">
-			<SearchPage />
+			<Quote />
+			<SearchForm
+				titleSearched={titleSearched}
+				setTitleSearched={setTitleSearched}
+				setBooksFound={setBooksFound}
+				booksFound={booksFound}
+			/>
+			<BookDisplay booksFound={booksFound}></BookDisplay>
 		</div>
 	);
 }
 
-export default App;
+export default SearchPage;
