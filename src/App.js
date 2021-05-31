@@ -75,7 +75,8 @@ function App() {
 				<NavBar></NavBar>
 				<BrowserRouter>
 					<h3>
-						<Link to="/">Home</Link> | <Link to="/Search">Search Page </Link> |
+						<Link to="/">Home</Link>_|_<Link to="/Search">Search Page </Link>{' '}
+						_|_
 						<Link to="/Library">View Library</Link>
 					</h3>
 					{/* <h3>

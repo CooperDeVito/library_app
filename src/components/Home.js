@@ -42,7 +42,7 @@ function Home() {
 				<Typography className={classes.pos} color="textSecondary">
 					noun
 				</Typography>
-				<Typography variant="body2" component="p">
+				<Typography variant="body1" component="p">
 					:great or excessive love of books
 					<br />
 					{
@@ -52,7 +52,7 @@ function Home() {
 						-Chip Brown, Washington Post, 5 Dec. 1980
 					</Typography>
 				</Typography>
-				<Typography variant="body2" component="p">
+				<Typography variant="body1" component="p">
 					also :enthusiastic or extreme interest in collecting books
 					<br />
 					{

@@ -47,6 +47,7 @@ function SearchForm(props) {
 					id="filled-basic"
 					variant="filled"
 					type="text"
+					label="search by title"
 					autoComplete="off"
 					value={props.titleSearched}
 					onChange={handleChange}
@@ -55,6 +56,7 @@ function SearchForm(props) {
 				<Button
 					type="submit"
 					color="secondary"
+					//label="search by title"
 					variant="contained"
 					size="large"
 				>

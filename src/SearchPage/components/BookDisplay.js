@@ -30,10 +30,10 @@ function BookDisplay(props) {
 	const columns = [
 		{ field: 'id', headerName: 'ID', width: 70 },
 		{ field: 'title', headerName: 'Title', width: 250 },
-		{ field: 'subtitle', headerName: 'Subtitle', width: 450 },
+		{ field: 'subtitle', headerName: 'Subtitle', width: 330 },
 		{ field: 'authors', headerName: 'Authors', width: 250 },
 		{ field: 'rating', headerName: 'Rating', width: 130 },
-		{ field: 'addbutton', headerName: 'Add', type: 'object', width: 200 },
+		// { field: 'addbutton', headerName: 'Add', type: 'object', width: 200 },
 	];
 
 	let count = 1;
@@ -47,7 +47,7 @@ function BookDisplay(props) {
 				subtitle: book.volumeInfo.subtitle,
 				authors: book.volumeInfo.authors,
 				rating: book.volumeInfo.averageRating,
-				addbutton: <AddButton></AddButton>,
+				//addbutton: <AddButton></AddButton>,
 			};
 		});
 		theRows = rows;
@@ -78,8 +78,8 @@ function BookDisplay(props) {
 					rows={theRows}
 					columns={columns}
 					pageSize={10}
-					checkboxSelection={true}
-					onRowDoubleClick={addTo(theRows[2])}
+					checkboxSelection
+					onRowSelected={addTo(theRows[3])}
 					//onRowSelected={addTo(theRows[2])}
 				/>
 			</div>
