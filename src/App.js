@@ -6,12 +6,23 @@ import SearchForm from './SearchPage/components/SearchForm';
 import BookDisplay from './SearchPage/components/BookDisplay';
 import SearchPage from './SearchPage/App';
 import LibraryPage from './LibraryPage/App';
+import Home from './components/Home';
 import NavBar from './components/NavBar';
+import {
+	BrowserRouter,
+	Route,
+	Link,
+	Switch,
+	useHistory,
+	Redirect,
+} from 'react-router-dom';
+
 import {
 	makeStyles,
 	ThemeProvider,
 	createMuiTheme,
 	MuiThemeProvider,
+	Button,
 } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -62,8 +73,28 @@ function App() {
 		<MuiThemeProvider theme={theme}>
 			<div className="App">
 				<NavBar></NavBar>
-				<SearchPage />
-				<LibraryPage></LibraryPage>
+				<BrowserRouter>
+					<h3>
+						<Link to="/">Home</Link>
+					</h3>
+					<h3>
+						<Link to="/Search">Search Page </Link>
+					</h3>
+					<h3>
+						<Link to="/Library">View Library</Link>
+					</h3>
+
+					<main>
+						<Switch>
+							<Route path="/" exact component={Home} />
+
+							<Route path="/Search" component={SearchPage} />
+							<Route path="/Library" component={LibraryPage} />
+						</Switch>
+					</main>
+				</BrowserRouter>
+				{/* <SearchPage />
+				<LibraryPage></LibraryPage> */}
 			</div>
 		</MuiThemeProvider>
 	);

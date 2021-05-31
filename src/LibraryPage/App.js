@@ -1,8 +1,18 @@
 import './App.css';
-import React from 'react';
-
+import React, { useState } from 'react';
+import Fact from './components/Fact';
+import BookInfo from './components/BookInfo';
+import LoadButton from './components/LoadButton';
 function LibraryPage() {
-	return <h1> HI </h1>;
+	const [myBooks, setMyBooks] = useState();
+
+	return (
+		<div>
+			<Fact></Fact>
+			<LoadButton myBooks={myBooks} setMyBooks={setMyBooks}></LoadButton>
+			<BookInfo myBooks={myBooks}></BookInfo>
+		</div>
+	);
 }
 
 export default LibraryPage;
