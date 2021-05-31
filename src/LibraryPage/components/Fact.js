@@ -23,51 +23,48 @@ const useStyles = makeStyles({
 	},
 });
 
-function Fact() {
+function Quote() {
 	const classes = useStyles();
 	const bull = <span className={classes.bullet}>•</span>;
+	const quotes = [
+		{
+			Quote:
+				"I don't believe in the kind of magic in my books. But I do believe something very magical can happen when you read a good book.",
+			Author: 'J.K. Rowling',
+		},
+		{
+			Quote: 'All I have learned, I learned from books',
+			Author: 'Abraham Lincoln',
+		},
+		{
+			Quote:
+				'Until I feared I would lose it, I never loved to read. One does not love breathing',
+			Author: 'Harper Lee',
+		},
+	];
+
 	return (
-		<Card className={classes.root} variant="outlined">
+		<Card className={classes.root}>
 			<CardContent>
 				<Typography
 					className={classes.title}
 					color="textSecondary"
 					gutterBottom
 				>
-					Word of the Day
-				</Typography>
-				<Typography variant="h5" component="h2">
-					bib{bull}lio{bull}phil{bull}ia
+					Quote of the Day
 				</Typography>
 				<Typography className={classes.pos} color="textSecondary">
-					noun
+					"All I have learned, I learned from books"
 				</Typography>
 				<Typography variant="body2" component="p">
-					:great or excessive love of books
-					<br />
-					{
-						'"Thus, book theft borne of base greed, not bibliophilia, mocks the book world faith that love of books leads to a life of virtue."'
-					}
-					<Typography color="textSecondary" gutterBottom>
-						-Chip Brown, Washington Post, 5 Dec. 1980
-					</Typography>
-				</Typography>
-				<Typography variant="body2" component="p">
-					also :enthusiastic or extreme interest in collecting books
-					<br />
-					{
-						'"But then bibliophilia is a pathological condition marked by covetousness, elitism and other undesirable, seriously psychopathic traits."'
-					}
-					<Typography color="textSecondary" gutterBottom>
-						- Elizabeth Young, The Guardian (London), 24 Oct. 1998
-					</Typography>
+					{'-Abraham Lincoln'}
 				</Typography>
 			</CardContent>
-			<CardActions>
+			{/* <CardActions>
 				<Button size="small">Learn More</Button>
-			</CardActions>
+			</CardActions> */}
 		</Card>
 	);
 }
 
-export default Fact;
+export default Quote;
