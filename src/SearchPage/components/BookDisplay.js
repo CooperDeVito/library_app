@@ -1,9 +1,32 @@
-import React from 'react';
-import { Paper, Card } from '@material-ui/core';
-import { DataGrid } from '@material-ui/data-grid';
+import React, { useState } from 'react';
+import { Paper, Card, Select } from '@material-ui/core';
+import {
+	DataGrid,
+	selectedGridRowsCountSelector,
+	selectedGridRowsSelector,
+} from '@material-ui/data-grid';
 import AddButton from './AddButton';
-
+function addTo(row) {
+	console.log(row.title);
+	console.log(row.authors);
+	alert(row.title, 'has been added to your collection');
+	const newBook = { Title: row.title, Author: row.authors };
+	fetch('http://localhost:8080/books/add', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newBook),
+	})
+		.then((response) => {
+			return response.json();
+		})
+		.then((object) => {
+			console.log('Success', object);
+		});
+}
 function BookDisplay(props) {
+	const [selection, setSelection] = useState();
 	const columns = [
 		{ field: 'id', headerName: 'ID', width: 70 },
 		{ field: 'title', headerName: 'Title', width: 250 },
@@ -30,16 +53,24 @@ function BookDisplay(props) {
 		theRows = rows;
 	}
 	if (!props.booksFound) {
-		return <h1> Nothing to see here... </h1>;
+		return <h1> </h1>;
 	}
 
-	function addTo() {
-		alert('Item added to collection');
-	}
-
-	function somethingElse() {
-		alert('Item deleted from collection');
-	}
+	// function somethingElse() {
+	// 	fetch('http://localhost:8080/books/add', {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			'Content-Type': 'application/json',
+	// 		},
+	// 		body: JSON.stringify(newBook),
+	// 	})
+	// 		.then((response) => {
+	// 			return response.json();
+	// 		})
+	// 		.then((object) => {
+	// 			console.log('Success', object);
+	// 		});
+	// }
 	return (
 		<Paper>
 			<div style={{ height: 800, width: '100%' }}>
@@ -48,8 +79,8 @@ function BookDisplay(props) {
 					columns={columns}
 					pageSize={10}
 					checkboxSelection={true}
-					// onRowDoubleClick={addTo}
-					onRowSelected={somethingElse}
+					onRowDoubleClick={addTo(theRows[2])}
+					//onRowSelected={addTo(theRows[2])}
 				/>
 			</div>
 		</Paper>
