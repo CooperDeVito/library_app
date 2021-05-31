@@ -75,14 +75,15 @@ function App() {
 				<NavBar></NavBar>
 				<BrowserRouter>
 					<h3>
-						<Link to="/">Home</Link>
+						<Link to="/">Home</Link> | <Link to="/Search">Search Page </Link> |
+						<Link to="/Library">View Library</Link>
 					</h3>
-					<h3>
+					{/* <h3>
 						<Link to="/Search">Search Page </Link>
 					</h3>
 					<h3>
 						<Link to="/Library">View Library</Link>
-					</h3>
+					</h3> */}
 
 					<main>
 						<Switch>

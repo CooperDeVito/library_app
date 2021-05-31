@@ -9,7 +9,7 @@ import AddButton from './AddButton';
 function addTo(row) {
 	console.log(row.title);
 	console.log(row.authors);
-	alert(row.title, 'has been added to your collection');
+	//alert(row.title, 'has been added to your collection');
 	const newBook = { Title: row.title, Author: row.authors };
 	fetch('http://localhost:8080/books/add', {
 		method: 'POST',
